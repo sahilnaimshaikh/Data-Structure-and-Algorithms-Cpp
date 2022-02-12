@@ -44,7 +44,7 @@ using namespace std;
              }
              ptr->next = NULL;
              p->next = ptr;
-             return head;
+            return head;
          }
          struct node* insertAfterNode(struct node* head, struct node * node, int data){
              struct node* ptr = (struct node*) malloc(sizeof(struct node));
@@ -80,9 +80,9 @@ int main(){
                     // traverseLinkedList(head);
 
                 // 2) in between 
-                    // int index = 3;
-                    // head = insertAtIndex(head, 9, index);
-                    // traverseLinkedList(head);
+                    int index = 3;
+                   head = insertAtIndex(head, 9, index);
+                    traverseLinkedList(head);
 
                 // 2) at the end
                     // head = insertAtEnd(head, 9);

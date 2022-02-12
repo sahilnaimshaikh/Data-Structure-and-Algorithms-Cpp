@@ -38,3 +38,4 @@ int main(){
         
 return 0;
 }
+// couldnt get the right solution for the testcases. All testCases failed except the first one
