@@ -1,0 +1,1 @@
+All others operations in the Circular Linked List are similar to the singly Linked List.
