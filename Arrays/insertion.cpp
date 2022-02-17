@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-
+        // Note:The function uses the memory of the same array that is passed to it, and can change what is in that memory. Because arrays are already pointers, there is usually no reason to pass an array explicitly by reference.
         void insert(int arrae[], int index, int &size, int element, int capacity){
 
             if (size >= capacity || index > size-1)
@@ -29,13 +29,12 @@ using namespace std;
 int main(){
             
         int arrae[100] = {1,23,4,45,2,75,4};
-        int size = 7, element = 9, capacity = 100, index = 7;
+        int size = 7, element = 9, capacity = 100, index = 4;
         display(arrae, size);
-        cout<<size<<endl;
+        // cout<<size<<endl;
         insert(arrae, index, size,element,capacity);
         display(arrae, size);
-        cout<<size<<endl;
+        // cout<<size<<endl;
         
 return 0;
 }
-// couldnt get the right solution for the testcases. All testCases failed except the first one

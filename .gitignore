@@ -7,3 +7,6 @@ traversal.exe
 insertion.exe
 deletion.exe
 implementation.exe
+infixToPostfix.exe
+parenthesisProblem.exe
+squadInfo
