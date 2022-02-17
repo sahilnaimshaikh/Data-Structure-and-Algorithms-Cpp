@@ -71,7 +71,7 @@ int main()
 {
     struct queue *myQueue = (queue *)malloc(sizeof(queue));
 
-    myQueue->capacity = 20;
+    myQueue->capacity = 4;
     myQueue->arr = (int *)malloc(myQueue->capacity * sizeof(int));
     myQueue->rearIndex = -1, myQueue->frontIndex = -1;
 
@@ -83,8 +83,11 @@ int main()
     dequeue(myQueue);
     dequeue(myQueue);
     dequeue(myQueue);
+    dequeue(myQueue);
 
+    enqueue(myQueue, 89);
     display(myQueue);
 
     return 0;
 }
+// There are certain drawbacks of the this queue. Thats why we use Circular Queue for efficient use of memory.
