@@ -13,4 +13,7 @@ squadInfo
 insertionSort.exe
 bubbleSort.exe
 selectionSort.exe
-
+mergeSort.exe
+countSort.exe
+nthRoot.exe
+singleElement.exe

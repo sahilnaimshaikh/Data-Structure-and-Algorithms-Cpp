@@ -33,8 +33,8 @@ int partition(int A[], int low, int high)
             A[j] = temp;
         }
     } while (i < j);
-    // when the value of the pivot is the max in the array the value of i will be incremented higher than the high,
-    // in this case while condition of doWhile loop will be trigger
+    // when the value of the pivot is the max in the array, the value of i will be incremented higher than the high,
+    // in this case while condition of doWhile loop will become false.
 
     int temp = A[low];
     A[low] = A[j];
