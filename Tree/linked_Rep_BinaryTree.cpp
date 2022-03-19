@@ -13,7 +13,8 @@ struct node* createNode(int data){
     treeNode->right = NULL;
     return treeNode;
 } 
-        
+
+
 int main(){
 
      struct node* root = createNode(2);
