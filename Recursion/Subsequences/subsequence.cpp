@@ -19,7 +19,8 @@ using namespace std;
         set.pop_back();
         print(i+1,set,arr,n);
      }    
-            
+
+      
 int main(){
             
         int arr[] = {1,2,3,4};
