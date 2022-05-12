@@ -18,6 +18,7 @@ vector<vector<int>> permute(vector<int> &nums) {
         
     vector<vector<int>> ans;
     findPermute(0,nums, ans);
+    sort(ans.begin(), ans.end());
     return ans;
     }    
           
