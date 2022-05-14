@@ -29,7 +29,7 @@ cout<<"Enter the no. of Rows to be generated";
 cin>>numRows;
 for(auto it : generate(numRows)){
     for(auto i: it){
-        cout<<" "<<i<<" ";
+        cout<<i<<" ";
     }
     cout<<endl;
 }         
