@@ -31,7 +31,7 @@ using namespace std;
           
 int main(){
           
-    vector<int> nums = {4,3,2,1};
+    vector<int> nums = {1,2,5,6,4,1};
     nextPermutation(nums);
     for(auto it : nums) cout<<it<<" ";
           

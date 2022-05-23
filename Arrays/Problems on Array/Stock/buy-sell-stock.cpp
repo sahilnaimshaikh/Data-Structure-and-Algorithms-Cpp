@@ -16,7 +16,8 @@ using namespace std;
           
 int main(){
           
-          vector<int> prices = {7,1,5,3,6,4};
+          vector<int> prices = {7,6,5,4,3,2,1};
+          reverse(prices.begin(), prices.end());
           cout<<maxProfit(prices);
           
 return 0;

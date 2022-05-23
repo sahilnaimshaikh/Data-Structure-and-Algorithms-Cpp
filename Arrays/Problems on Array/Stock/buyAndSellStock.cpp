@@ -2,7 +2,7 @@
 using namespace std;
 
   int maxProfit(vector<int>& prices) {
-     int trigger = 0, max=0,profit;
+     int max=0,profit;
      for (int i = 0; i < prices.size(); i++)
      {
          for(int j = i+1; j < prices.size(); j++){
@@ -21,7 +21,7 @@ using namespace std;
           
 int main(){
 
-  vector<int> prices = {7,6,5,4,10};
+  vector<int> prices = {7,6,5,4};
   cout<<maxProfit(prices);        
           
           
@@ -29,4 +29,4 @@ int main(){
 return 0;
 }
 // brute force approach 
-// above solution is getting TLE on leetcode although the output generating is correct...therefore heading toward better approach.
+// above solution is getting TLE on leetcode although the output generated is correct...therefore heading toward optimal approach.
