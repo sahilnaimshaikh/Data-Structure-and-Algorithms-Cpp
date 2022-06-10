@@ -12,22 +12,37 @@ void display(vector<int> myVector)
 
 int removeDuplicates(vector<int> &nums)
 {
-    int counter = 1;
     int element = nums[0];
-    for (int i = 0; i < nums.size(); i++)
+    int counter = 1;
+    for (int j = 0; j < nums.size(); j++)
     {
-       if(nums[i]>element){
-           nums[counter] = nums[i];
+        if(element != nums[j]){
+           element = nums[j];
+           nums[counter] = nums[j];
            counter++;
-           element = nums[i];
-       }
+        }
     }
     return counter;
+    
 }
+// int removeDuplicates(vector<int> &nums)
+// {
+//     int counter = 1;
+//     int element = nums[0];
+//     for (int i = 0; i < nums.size(); i++)
+//     {
+//        if(nums[i]>element){
+//            nums[counter] = nums[i];
+//            counter++;
+//            element = nums[i];
+//        }
+//     }
+//     return counter;
+// }
 int main()
 {
 
-    vector<int> arr = {1, 1, 2, 2, 3, 4, 5, 5, 6, 6};
+    vector<int> arr = {0,0,1,1,1,1,2,3,3};
     display(arr);
     removeDuplicates(arr);
     display(arr);
