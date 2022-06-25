@@ -6,7 +6,7 @@ using namespace std;
      void print(int i, vector<int> &set, int arr[], int n)  {
 
          if(i>=n){
-             if(set.size()==0)cout<<"{ }"<<endl;
+             if(set.size()==0)cout<<"[]"<<endl;
              for (auto it: set)
              {
                  cout<<it<<" ";

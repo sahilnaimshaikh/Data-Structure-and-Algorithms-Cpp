@@ -26,7 +26,10 @@ using namespace std;
 int main(){
             
         vector<int> arr =  {1,2,3,4};
-        subsets(arr);
+        for(auto it : subsets(arr)){
+            for(auto i : it)cout<<i<<" ";
+            cout<<endl;
+        }
 
        
             
