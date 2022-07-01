@@ -17,31 +17,22 @@ struct TreeNode *createNode(int data)
     treeNode->right = NULL;
     return treeNode;
 }
-int maxDepth(TreeNode *root){
+int traverse(TreeNode * root, int &maxi){
     if(root == NULL) return 0;
     
-    int leftTree = maxDepth(root->left);
-    int rightTree = maxDepth(root->right);
+    int leftTree = traverse(root->left, maxi);
+    int rightTree = traverse(root->right, maxi);
+    maxi = max(maxi, leftTree+rightTree);
     return max(leftTree, rightTree)+1;
+}
+int maxDepth(TreeNode *root){
+    
+    int maxi = 0;
+    traverse(root, maxi);
+    return maxi;
     
 }
 
-// void traverse(TreeNode *root, int count, int &max){
-//     if(root == NULL) return ;
-//     if(count >= max) max = count;
-//     // count++;
-//     traverse(root->left, count++, max);
-//     traverse(root->right, count++, max);  
-// }
-// int maxDepth(TreeNode *root)
-// {   
-//     if(root == NULL)return 0;
-    
-//     int count = 1;
-//     int max = 1;
-//     traverse(root, count, max);
-//     return max;
-// }
 
 int main()
 {

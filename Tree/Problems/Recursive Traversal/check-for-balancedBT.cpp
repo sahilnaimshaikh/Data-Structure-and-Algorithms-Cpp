@@ -22,26 +22,13 @@ int maxDepth(TreeNode *root){
     
     int leftTree = maxDepth(root->left);
     int rightTree = maxDepth(root->right);
+
+    if(leftTree == -1 || rightTree == -1) return -1;
+    if(abs(leftTree-rightTree)>1) return -1;
     return max(leftTree, rightTree)+1;
     
 }
 
-// void traverse(TreeNode *root, int count, int &max){
-//     if(root == NULL) return ;
-//     if(count >= max) max = count;
-//     // count++;
-//     traverse(root->left, count++, max);
-//     traverse(root->right, count++, max);  
-// }
-// int maxDepth(TreeNode *root)
-// {   
-//     if(root == NULL)return 0;
-    
-//     int count = 1;
-//     int max = 1;
-//     traverse(root, count, max);
-//     return max;
-// }
 
 int main()
 {

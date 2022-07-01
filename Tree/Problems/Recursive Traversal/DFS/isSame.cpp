@@ -1,6 +1,3 @@
-
-
-
 #include <bits/stdc++.h>
 using namespace std;
 struct TreeNode
@@ -17,44 +14,44 @@ struct TreeNode *createNode(int data)
     treeNode->right = NULL;
     return treeNode;
 }
-int maxDepth(TreeNode *root){
-    if(root == NULL) return 0;
-    
-    int leftTree = maxDepth(root->left);
-    int rightTree = maxDepth(root->right);
-    return max(leftTree, rightTree)+1;
-    
+void traverse(TreeNode *root, vector<int> &ans){
+    if(root == NULL) { 
+        ans.push_back(INT_MAX);
+        return;}
+    ans.push_back(root->data);
+    traverse(root->left, ans);
+    traverse(root->right, ans);
 }
-
-// void traverse(TreeNode *root, int count, int &max){
-//     if(root == NULL) return ;
-//     if(count >= max) max = count;
-//     // count++;
-//     traverse(root->left, count++, max);
-//     traverse(root->right, count++, max);  
-// }
-// int maxDepth(TreeNode *root)
-// {   
-//     if(root == NULL)return 0;
-    
-//     int count = 1;
-//     int max = 1;
-//     traverse(root, count, max);
-//     return max;
-// }
+bool isSameTree(TreeNode* p, TreeNode* q) 
+{
+    vector<int> ans1;
+    vector<int> ans2;
+    traverse(p, ans1);
+    traverse(q, ans2);
+    if(ans1.size() == ans2.size()){
+        for (int i = 0; i < ans1.size(); i++)
+        {
+            if(ans1[i]!=ans2[i]) return false;
+        }
+        return true;
+    }
+    else return false;
+}
 
 int main()
 {
      struct TreeNode *root = createNode(2);
+     struct TreeNode *root2 = createNode(2);
     struct TreeNode *leftChild = createNode(3);
     struct TreeNode *rightChild = createNode(5);
     struct TreeNode *leftChild_left = createNode(35);
     struct TreeNode *leftChild_right = createNode(4);
 
     root->left = leftChild;
+    root2->left = leftChild;
     root->right = rightChild;
     leftChild->left = leftChild_left;
     leftChild->right = leftChild_right;
-    cout<<maxDepth(root);
+    cout<<isSameTree(root, root2);
     return 0;
 }

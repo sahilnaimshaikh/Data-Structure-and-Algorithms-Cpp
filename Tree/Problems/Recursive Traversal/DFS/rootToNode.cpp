@@ -17,32 +17,23 @@ struct TreeNode *createNode(int data)
     treeNode->right = NULL;
     return treeNode;
 }
-int maxDepth(TreeNode *root){
-    if(root == NULL) return 0;
-    
-    int leftTree = maxDepth(root->left);
-    int rightTree = maxDepth(root->right);
-    return max(leftTree, rightTree)+1;
-    
+ bool traverse(TreeNode* root,int n, vector<int> &ans){
+    if(!root) return false;
+    ans.push_back(root->data);
+    if(root->data == n){
+        return true;
+    }
+    if(traverse(root->left, n, ans))return true;
+    if(traverse(root->right, n, ans))return true;
+    ans.pop_back();
+    return false;
 }
-
-// void traverse(TreeNode *root, int count, int &max){
-//     if(root == NULL) return ;
-//     if(count >= max) max = count;
-//     // count++;
-//     traverse(root->left, count++, max);
-//     traverse(root->right, count++, max);  
-// }
-// int maxDepth(TreeNode *root)
-// {   
-//     if(root == NULL)return 0;
-    
-//     int count = 1;
-//     int max = 1;
-//     traverse(root, count, max);
-//     return max;
-// }
-
+vector<int> rootToNode(TreeNode* root, int n){
+    vector<int> ans;
+    if(!root) return ans;
+    traverse(root,n, ans);
+    return ans;
+}
 int main()
 {
      struct TreeNode *root = createNode(2);
@@ -55,6 +46,11 @@ int main()
     root->right = rightChild;
     leftChild->left = leftChild_left;
     leftChild->right = leftChild_right;
-    cout<<maxDepth(root);
+    for(auto it : rootToNode(root, 2))cout<<it<<" ";
     return 0;
+    //         2
+    //        / \
+    //       3   5
+    //      / \
+    //    35   4
 }

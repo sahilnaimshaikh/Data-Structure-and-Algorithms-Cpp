@@ -17,31 +17,29 @@ struct TreeNode *createNode(int data)
     treeNode->right = NULL;
     return treeNode;
 }
-int maxDepth(TreeNode *root){
-    if(root == NULL) return 0;
-    
-    int leftTree = maxDepth(root->left);
-    int rightTree = maxDepth(root->right);
-    return max(leftTree, rightTree)+1;
-    
+
+vector<int> topView(TreeNode* root){
+    vector<int> ans;
+    if(root == NULL) return ans;
+
+    queue<pair<TreeNode*, int>> q;
+    map<int, int> mpp;
+    q.push({root, 0});
+
+    while(!q.empty()){
+        TreeNode* node = q.front().first;
+        int colNo = q.front().second;
+        q.pop();
+        if(mpp.find(colNo) == mpp.end()) mpp[colNo] = node->data;
+        if(node->left) q.push({node->left, colNo-1});
+        if(node->right) q.push({node->right, colNo+1});
+    }
+    for(auto it: mpp){
+        ans.push_back(it.second);
+    }
+    return ans;
 }
 
-// void traverse(TreeNode *root, int count, int &max){
-//     if(root == NULL) return ;
-//     if(count >= max) max = count;
-//     // count++;
-//     traverse(root->left, count++, max);
-//     traverse(root->right, count++, max);  
-// }
-// int maxDepth(TreeNode *root)
-// {   
-//     if(root == NULL)return 0;
-    
-//     int count = 1;
-//     int max = 1;
-//     traverse(root, count, max);
-//     return max;
-// }
 
 int main()
 {
@@ -55,6 +53,6 @@ int main()
     root->right = rightChild;
     leftChild->left = leftChild_left;
     leftChild->right = leftChild_right;
-    cout<<maxDepth(root);
+    for(auto it : topView(root))cout<<it<<" ";
     return 0;
 }

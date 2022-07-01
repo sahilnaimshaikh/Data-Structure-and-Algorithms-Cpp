@@ -17,31 +17,19 @@ struct TreeNode *createNode(int data)
     treeNode->right = NULL;
     return treeNode;
 }
-int maxDepth(TreeNode *root){
-    if(root == NULL) return 0;
-    
-    int leftTree = maxDepth(root->left);
-    int rightTree = maxDepth(root->right);
-    return max(leftTree, rightTree)+1;
-    
-}
+  bool hasPathSum(TreeNode* root, int targetSum) {
+        if(root==NULL){
+            return false;
+        }
+        targetSum-=root->data;
+        if(targetSum == 0 && !root->left && !root->right) return true;
 
-// void traverse(TreeNode *root, int count, int &max){
-//     if(root == NULL) return ;
-//     if(count >= max) max = count;
-//     // count++;
-//     traverse(root->left, count++, max);
-//     traverse(root->right, count++, max);  
-// }
-// int maxDepth(TreeNode *root)
-// {   
-//     if(root == NULL)return 0;
-    
-//     int count = 1;
-//     int max = 1;
-//     traverse(root, count, max);
-//     return max;
-// }
+        if(hasPathSum(root->left, targetSum)) return true;
+        if(hasPathSum(root->right, targetSum)) return true;
+
+        return false;
+
+    }
 
 int main()
 {
@@ -55,6 +43,10 @@ int main()
     root->right = rightChild;
     leftChild->left = leftChild_left;
     leftChild->right = leftChild_right;
-    cout<<maxDepth(root);
+    cout<<hasPathSum(root, 7);
     return 0;
+
+//         2
+//     3       5
+// 35    4     
 }
