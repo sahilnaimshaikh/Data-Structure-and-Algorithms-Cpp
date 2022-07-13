@@ -14,16 +14,19 @@ struct TreeNode *createNode(int data)
     treeNode->right = NULL;
     return treeNode;
 }
-void traverse(TreeNode *root, vector<int> &ans){
+void traverse(TreeNode *root, vector<int> &ans, int & count){
     if(root == NULL) return;
-    traverse(root->left, ans);
+    count++;
+    traverse(root->left, ans,count);
     ans.push_back(root->data);
-    traverse(root->right, ans);
+    traverse(root->right, ans, count);
 }
 vector<int> inorderTraversal(TreeNode *root)
 {
     vector<int> ans;
-    traverse(root, ans);
+    int count = 0;
+    traverse(root, ans, count);
+    cout<<count;
     return ans;
 }
 
