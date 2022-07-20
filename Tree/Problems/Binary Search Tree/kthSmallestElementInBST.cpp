@@ -1,37 +1,44 @@
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
 struct TreeNode
 {
-    int data;
+    int val;
     struct TreeNode *left;
     struct TreeNode *right;
 };
 struct TreeNode *createNode(int data)
 {
     struct TreeNode *treeNode = (struct TreeNode *)malloc(sizeof(struct TreeNode));
-    treeNode->data = data;
+    treeNode->val = data;
     treeNode->left = NULL;
     treeNode->right = NULL;
     return treeNode;
 }
-void traverse(TreeNode *root, vector<int> &ans, int & count){
+// Note : Inorder Traversal of BST is always in ascending order
+void traverse(TreeNode *root, vector<int> &ans){
     if(root == NULL) return;
-    count++;
-    traverse(root->left, ans,count);
-    ans.push_back(root->data);
-    traverse(root->right, ans, count);
+    traverse(root->left, ans);
+    ans.push_back(root->val);
+    traverse(root->right, ans);
 }
-vector<int> inorderTraversal(TreeNode *root)
-{
-    vector<int> ans;
-    int count = 0;
-    traverse(root, ans, count);
-    return ans;
-}
+   int kthSmallest(TreeNode* root, int k) {
+      
+      vector<int> ans;
+      traverse(root, ans);
+      return ans[k-1];
+        
+    }
+
+//         22
+//     13     45
+//   9   17    
+
 
 int main()
 {
-    
      struct TreeNode *root = createNode(22);
     struct TreeNode *leftChild = createNode(13);
     struct TreeNode *rightChild = createNode(45);
@@ -42,7 +49,10 @@ int main()
     root->right = rightChild;
     leftChild->left = leftChild_left;
     leftChild->right = leftChild_right;
-   
-    for(auto it : inorderTraversal(root))cout<<it<<" ";
+    cout<<kthSmallest(root, 2);
     return 0;
+
+//         22
+//     13     45
+//   9   17     
 }

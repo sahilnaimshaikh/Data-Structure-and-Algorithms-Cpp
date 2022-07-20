@@ -1,37 +1,41 @@
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
 struct TreeNode
 {
-    int data;
+    int val;
     struct TreeNode *left;
     struct TreeNode *right;
 };
 struct TreeNode *createNode(int data)
 {
     struct TreeNode *treeNode = (struct TreeNode *)malloc(sizeof(struct TreeNode));
-    treeNode->data = data;
+    treeNode->val = data;
     treeNode->left = NULL;
     treeNode->right = NULL;
     return treeNode;
 }
-void traverse(TreeNode *root, vector<int> &ans, int & count){
-    if(root == NULL) return;
-    count++;
-    traverse(root->left, ans,count);
-    ans.push_back(root->data);
-    traverse(root->right, ans, count);
-}
-vector<int> inorderTraversal(TreeNode *root)
-{
-    vector<int> ans;
-    int count = 0;
-    traverse(root, ans, count);
-    return ans;
-}
+
+
+int ceil(TreeNode * root, int val){
+        int ceil = INT_MAX;
+      while(!root->left && !root->right && root->val !=val){
+        if(root->val >= val) ceil = root->val;
+         root = val<root->val?root->left:root->right;
+      }
+      ceil = min(ceil, root->val);
+      return ceil;
+    }
+
+//         22
+//     13     45
+//   9   17    
+
 
 int main()
 {
-    
      struct TreeNode *root = createNode(22);
     struct TreeNode *leftChild = createNode(13);
     struct TreeNode *rightChild = createNode(45);
@@ -42,7 +46,10 @@ int main()
     root->right = rightChild;
     leftChild->left = leftChild_left;
     leftChild->right = leftChild_right;
-   
-    for(auto it : inorderTraversal(root))cout<<it<<" ";
+    cout<<ceil(root, 18);
     return 0;
+
+//         22
+//     13     45
+//   9   17     
 }
