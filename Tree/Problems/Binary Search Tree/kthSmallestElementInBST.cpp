@@ -18,18 +18,22 @@ struct TreeNode *createNode(int data)
     return treeNode;
 }
 // Note : Inorder Traversal of BST is always in ascending order
-void traverse(TreeNode *root, vector<int> &ans){
-    if(root == NULL) return;
-    traverse(root->left, ans);
-    ans.push_back(root->val);
-    traverse(root->right, ans);
+bool traverse(TreeNode *root, int& k, int& ans){
+    if(root == NULL) return false;
+    if(traverse(root->left, k, ans)) return true;
+    k--;
+    if(k==0){
+        ans =  root->val;
+        return true;
+    }
+    if(traverse(root->right, k, ans)) return true;
+    return false;
 }
    int kthSmallest(TreeNode* root, int k) {
       
-      vector<int> ans;
-      traverse(root, ans);
-      return ans[k-1];
-        
+      int ans;
+      traverse(root, k, ans);
+      return ans;  
     }
 
 //         22

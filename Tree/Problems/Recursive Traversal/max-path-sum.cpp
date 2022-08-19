@@ -40,8 +40,8 @@ int main()
      struct TreeNode *root = createNode(2);
     struct TreeNode *leftChild = createNode(3);
     struct TreeNode *rightChild = createNode(5);
-    struct TreeNode *leftChild_left = createNode(-35);
-    struct TreeNode *leftChild_right = createNode(-4);
+    struct TreeNode *leftChild_left = createNode(35);
+    struct TreeNode *leftChild_right = createNode(4);
 
     root->left = leftChild;
     root->right = rightChild;

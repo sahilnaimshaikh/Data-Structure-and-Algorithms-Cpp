@@ -15,7 +15,7 @@ void insertionSort(int *A, int n){
     {
         int key = A[i];
         int j = i-1;
-        while (j>=0 && A[j]<key)//if A[j]>key is used in while loop  then the Array is sorted in Ascending 
+        while (j>=0 && A[j]>key)//if A[j]>key is used in while loop  then the Array is sorted in Ascending 
                                   // or if A[j]<keyy is used then the array is sorted in descending order.
         {
             A[j+1] = A[j];
