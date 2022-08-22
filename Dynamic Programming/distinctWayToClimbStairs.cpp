@@ -34,6 +34,21 @@ using namespace std;
 
    } 
 
+  //tabulation
+
+   int climb(int n,vector<int>& dp){
+      
+      for (int i = 2; i < n; i++)
+      {
+        dp[i] = dp[i-1] + dp[i-2];
+      }
+      return dp[n];
+
+        
+
+   }
+   //space optimization
+   
 
 
 int main(){
