@@ -6,6 +6,7 @@ using namespace std;
       int columsSize = matrix[0].size();
       for (int i = 0; i < rowSize; i++)
       {
+       
           for (int j = 0; j < columsSize; j++)
           {
               if(matrix[i][j] == target) return true;
