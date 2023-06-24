@@ -6,6 +6,7 @@ using namespace std;
             int data;
             struct node* next;
         };
+      
         void traverseLinkedList(struct node * ptr){
              while(ptr != NULL){
                  cout<<ptr->data<<" ";
@@ -62,7 +63,11 @@ using namespace std;
               free(q);
               return head;
           }
-            
+          struct node* deleteNode(struct node* element){
+            element->data = element->next->data;
+            element->next = element->next->next;
+          }
+        
 int main(){
             
         struct node* head = (struct node *) malloc(sizeof(struct node));

@@ -15,7 +15,9 @@ using namespace std;
              }
              cout<<endl;
          }
-         struct node* insertAtBeginning(struct node* head, int data){
+         
+         
+         node* insertAtBeginning(struct node* head, int data){
              struct node* ptr = (struct node*)malloc(sizeof(struct node));
              ptr->data = data;
              ptr->next = head;
@@ -35,6 +37,7 @@ using namespace std;
              p->next = ptr;
              return head;
          }
+        
          struct node* insertAtEnd(struct node* head, int data){
              struct node* ptr = (struct node*) malloc(sizeof(struct node));
              ptr->data = data;
